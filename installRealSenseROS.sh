@@ -74,14 +74,6 @@ cd realsense
 git checkout 2.0.3
 cd ../..
 echo "Making Intel ROS realsense"
-sudo rosdep -y install --from-paths src --ignore-src --rosdistro kinetic
-if [ -e "$CATKIN_WORKSPACEHIDDEN" ] ; then
-	catkin_make
-	echo "RealSense 2 ROS Package installed"
-if [ -e "$CATKIN_BUILD_WORKSPACEHIDDEN" ] ; then
-	catkin build
-	echo "RealSense 2 ROS Package installed"
-else
-	echo "Error: Could not decide to use catkin_make or catkin build"
-	echo "Aborting..."
-fi
+# sudo rosdep -y install --from-paths src --ignore-src --rosdistro kinetic
+catkin_make
+echo "RealSense 2 ROS Package installed"
