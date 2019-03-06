@@ -15,6 +15,8 @@ The second step is to install ROS on the Jetson TX. There are convenience script
 
 This step, the third step, is to install librealsense and realsense as ROS packages. The script installRealSenseROS.sh in this directory will install librealsense and realsense and dependencies in a Catkin Workspace.
 
+This installs RealSense ROS version **2.0.3**
+
 To install, the following lines assume you to have a workspace already set up in the **home** directory with the name `earth_rover_ws`.
 	
 	$ cd ~/earth_rover_ws
@@ -27,9 +29,15 @@ A modified `.launch` file is attached to this repository. Copy the launch file i
 	$ cd ~/earth_rover_ws/installRealSense2ROSTX
 	$ cp rs_camera_mod.launch ~/earth_rover_ws/src/realsense/realsense2_camera/launch	
 
-The script 'setupTX.sh' simply turns off the USB autosuspend setting on the Jetson TX so that the camera is always available. 
+To start the camera node in ROS:
 
-This installs RealSense ROS version `2.0.3` 
+	$ cd ~/earth_rover_ws/
+	$ source devel/setup.bash
+	$ roslaunch realsense2_camera rs_camera_mod.launch
+
+More info about parameters, configuration and published topics can be found [here](https://github.com/intel-ros/realsense#usage-instructions)
+
+The script 'setupTX.sh' simply turns off the USB autosuspend setting on the Jetson TX so that the camera is always available. 
 
 <h3>Releases:</h3>
 
