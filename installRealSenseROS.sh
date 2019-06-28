@@ -69,7 +69,7 @@ echo "Starting installation of RealSense ROS package"
 # Update the dependencies database
 rosdep update
 echo "Cloning Intel ROS realsense package"
-git clone https://github.com/earthrover/realsense_ros
+git clone https://github.com/earthrover/realsense
 cd realsense
 git checkout 2.2.3
 cd ../..
