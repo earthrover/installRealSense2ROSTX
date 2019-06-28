@@ -1,6 +1,6 @@
 #!/bin/bash
 # Install the Intel Realsense library librealsense 2 on a Jetson TX Development Kit
-# Copyright (c) 2017-2018 Jetsonhacks 
+# Copyright (c) 2017-2018 Jetsonhacks
 # MIT License
 # Usage:
 # ./installLibRealSense.sh <catkin workspace>
@@ -13,7 +13,7 @@ INSTALL_DIR=$PWD
 source /opt/ros/kinetic/setup.bash
 DEFAULTDIR=catkin_ws
 CLDIR="$1"
-if [ ! -z "$CLDIR" ]; then 
+if [ ! -z "$CLDIR" ]; then
  DEFAULTDIR="$CLDIR"
 fi
 # Check to see if qualified path already
@@ -28,7 +28,7 @@ echo "DEFAULTDIR: $DEFAULTDIR"
 
 
 if [ -e "$DEFAULTDIR" ] ; then
-  echo "$DEFAULTDIR exists" 
+  echo "$DEFAULTDIR exists"
   CATKIN_WORKSPACEHIDDEN=$DEFAULTDIR/.catkin_workspace
   CATKIN_BUILD_WORKSPACEHIDDEN=$DEFAULTDIR/.catkin_tools
   if [ -e "$CATKIN_WORKSPACEHIDDEN" ] || [ -e "$CATKIN_BUILD_WORKSPACEHIDDEN" ] ; then
@@ -41,7 +41,7 @@ if [ -e "$DEFAULTDIR" ] ; then
 	echo "Terminating Installation."
 	exit 1
   fi
-else 
+else
   echo "Catkin Workspace named $DEFAULTDIR does not exist"
   echo "Please create a Catkin Workspace before installation"
   echo "Terminating Installation"
@@ -59,7 +59,7 @@ else
   echo "The source directory src does not exist"
   echo "Terminating Installation"
   exit 1
-fi 
+fi
 
 echo "Starting installation of librealsense"
 
@@ -69,9 +69,9 @@ echo "Starting installation of RealSense ROS package"
 # Update the dependencies database
 rosdep update
 echo "Cloning Intel ROS realsense package"
-git clone https://github.com/intel-ros/realsense.git
+git clone https://github.com/earthrover/realsense_ros
 cd realsense
-git checkout 2.0.3
+git checkout 2.2.3
 cd ../..
 echo "Making Intel ROS realsense"
 # sudo rosdep -y install --from-paths src --ignore-src --rosdistro kinetic
