@@ -10,7 +10,6 @@
 # Save the directory we're installing from:
 INSTALL_DIR=$PWD
 # Now go get ready to install librealsense
-source /opt/ros/kinetic/setup.bash
 DEFAULTDIR=catkin_ws
 CLDIR="$1"
 if [ ! -z "$CLDIR" ]; then
@@ -71,7 +70,7 @@ rosdep update
 echo "Cloning Intel ROS realsense package"
 git clone https://github.com/earthrover/realsense
 cd realsense
-git checkout 2.2.3
+git checkout 2.2.6
 cd ../..
 echo "Making Intel ROS realsense"
 # sudo rosdep -y install --from-paths src --ignore-src --rosdistro kinetic
